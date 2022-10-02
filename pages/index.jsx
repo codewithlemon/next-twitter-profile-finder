@@ -1,5 +1,6 @@
 import { useRef, useState } from "react"
 import UserProfile from "../components/UserProfile"
+import SavedProfiles from "../components/SavedProfiles"
 
 const HomePage = () => {
   const [selectedMethod, setSelectedMethod] = useState("id")
@@ -80,6 +81,9 @@ const HomePage = () => {
       {isPending && <p className="text-center pt-3">Searching ...</p>}
       {user && <UserProfile user={user} />}
       {error && <p className="text-center pt-3">{error}</p>}
+
+      {/* Saved Profiles */}
+      <SavedProfiles />
     </main>
   )
 }
