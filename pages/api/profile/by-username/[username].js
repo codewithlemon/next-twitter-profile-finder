@@ -1,6 +1,13 @@
 const twitterAcessToken = process.env.TWITTER_ACCESS_TOKEN
 
 export default async function handler(req, res) {
+  if (!twitterAcessToken) {
+    res.status(500).json({
+      message: "Missing or invalid token",
+    })
+    return
+  }
+
   const { username } = req.query
 
   if (!username) {
